@@ -155,19 +155,19 @@
     .hero p { font-size: 1.2rem; color: var(--text-muted); font-weight: 300; margin-bottom: 40px; max-width: 750px; margin-left: auto; margin-right: auto; line-height: 1.8; }
 
     /* Produktoversigt Grid */
-    .section { max-width: 1100px; margin: 80px auto; padding: 0 20px; position: relative; z-index: 2; }
+    .section { max-width: 1200px; margin: 80px auto; padding: 0 20px; position: relative; z-index: 2; }
     .section-title { text-align: center; margin-bottom: 60px; }
     .section-title h2 { font-family: 'Cinzel', serif; font-size: 2.6rem; color: #ffffff; margin-bottom: 15px; }
     .section-title p { color: var(--text-muted); font-size: 1.05rem; max-width: 650px; margin: 0 auto; }
 
-    .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 35px; }
+    .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
 
     /* Produktkort */
     .product-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 24px;
-      padding: 45px 35px;
+      padding: 40px 30px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -180,36 +180,38 @@
     
     .popular-tag { position: absolute; top: -14px; right: 30px; background: linear-gradient(135deg, var(--gold), #b89628); color: #050814; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; padding: 4px 14px; border-radius: 20px; letter-spacing: 1px; }
 
-    .product-icon { font-size: 2.8rem; color: var(--gold); margin-bottom: 25px; }
-    .product-card h3 { font-family: 'Cinzel', serif; font-size: 1.8rem; margin-bottom: 15px; color: #ffffff; }
-    .product-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 25px; line-height: 1.7; }
-    .product-price { font-size: 2.2rem; font-family: 'Cinzel', serif; font-weight: 700; color: var(--gold-light); margin-bottom: 25px; }
+    .product-icon { font-size: 2.5rem; color: var(--gold); margin-bottom: 20px; }
+    .product-card h3 { font-family: 'Cinzel', serif; font-size: 1.6rem; margin-bottom: 12px; color: #ffffff; }
+    .product-card p { color: var(--text-muted); font-size: 0.92rem; margin-bottom: 20px; line-height: 1.6; }
+    .product-price { font-size: 2rem; font-family: 'Cinzel', serif; font-weight: 700; color: var(--gold-light); margin-bottom: 20px; }
     
-    .feature-list { list-style: none; margin-bottom: 35px; }
-    .feature-list li { color: #cbd5e1; font-size: 0.92rem; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; }
-    .feature-list i { color: var(--gold); font-size: 0.85rem; }
+    .feature-list { list-style: none; margin-bottom: 30px; }
+    .feature-list li { color: #cbd5e1; font-size: 0.88rem; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+    .feature-list i { color: var(--gold); font-size: 0.8rem; }
 
     /* Modal Formular Dialog */
     .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(3, 5, 13, 0.85); backdrop-filter: blur(12px); z-index: 2000; justify-content: center; align-items: center; padding: 20px; }
-    .modal-content { background: #0b0f24; border: 1px solid var(--card-border); border-radius: 28px; max-width: 650px; width: 100%; max-height: 90vh; overflow-y: auto; padding: 45px; position: relative; box-shadow: 0 25px 50px rgba(0,0,0,0.5), 0 0 30px rgba(212, 175, 55, 0.1); color: #ffffff; }
+    .modal-content { background: #0b0f24; border: 1px solid var(--card-border); border-radius: 28px; max-width: 680px; width: 100%; max-height: 90vh; overflow-y: auto; padding: 40px; position: relative; box-shadow: 0 25px 50px rgba(0,0,0,0.5), 0 0 30px rgba(212, 175, 55, 0.1); color: #ffffff; }
     
     .close-btn { position: absolute; top: 20px; right: 25px; background: none; border: none; color: var(--text-muted); font-size: 1.8rem; cursor: pointer; transition: color 0.2s; }
     .close-btn:hover { color: var(--gold-light); }
 
-    .modal-header h3 { font-family: 'Cinzel', serif; font-size: 2.2rem; color: var(--gold-light); margin-bottom: 10px; }
-    .modal-header p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 30px; }
+    .modal-header h3 { font-family: 'Cinzel', serif; font-size: 2rem; color: var(--gold-light); margin-bottom: 8px; }
+    .modal-header p { color: var(--text-muted); font-size: 0.92rem; margin-bottom: 25px; }
 
     /* Formular felter */
-    .astro-form { display: flex; flex-direction: column; gap: 20px; }
-    .form-group { display: flex; flex-direction: column; gap: 8px; flex: 1; }
+    .astro-form { display: flex; flex-direction: column; gap: 18px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; flex: 1; }
     .form-row { display: flex; gap: 16px; }
     .form-group label { font-size: 0.85rem; font-weight: 600; color: var(--gold-light); letter-spacing: 0.5px; }
 
     .form-group input, .form-group select, .form-group textarea {
-      width: 100%; padding: 14px 18px; border: 1px solid var(--card-border); border-radius: 12px; font-size: 0.95rem; color: #ffffff; outline: none; transition: all 0.3s ease; background: rgba(15, 23, 42, 0.8); font-family: 'Inter', sans-serif;
+      width: 100%; padding: 12px 16px; border: 1px solid var(--card-border); border-radius: 12px; font-size: 0.92rem; color: #ffffff; outline: none; transition: all 0.3s ease; background: rgba(15, 23, 42, 0.8); font-family: 'Inter', sans-serif;
     }
     .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--gold); box-shadow: 0 0 12px rgba(212, 175, 55, 0.2); }
     .form-group option { background: #0b0f24; color: #ffffff; }
+
+    .dynamic-section { border-top: 1px dashed var(--card-border); padding-top: 18px; margin-top: 5px; display: flex; flex-direction: column; gap: 16px; }
 
     /* Footer */
     footer { border-top: 1px solid var(--card-border); padding: 60px 20px 30px; margin-top: 120px; text-align: center; color: var(--text-muted); font-size: 0.85rem; position: relative; z-index: 2; }
@@ -219,6 +221,7 @@
       .hero h1 { font-size: 2.5rem; }
       .form-row { flex-direction: column; }
       .nav-links { display: none; }
+      .products-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -259,31 +262,48 @@
   <section class="section" id="horoscopes">
     <div class="section-title">
       <h2>Vælg din astrologiske rejse</h2>
-      <p>Hvad enten du ønsker et hurtigt overblik eller en komplet dybdeanalyse af din skæbne, kærlighed og potentialer.</p>
+      <p>Fra øjeblikkelige dags- og ugehoroskoper til den helt store livs- og sjælsanalyse.</p>
     </div>
 
     <div class="products-grid">
       
-      <!-- Produkt 1: Det Lille Stjernekort -->
+      <!-- Produkt 1: Dagshoroskop -->
       <div class="product-card">
         <div>
-          <div class="product-icon"><i class="fa-solid fa-star-and-crescent"></i></div>
-          <h3>Det Lille Stjernekort</h3>
-          <p>Kortfattet og præcis analyse af din sol-profil, dine primære personlighedstræk og de næste 3 måneders energier.</p>
-          <div class="product-price">49 kr.</div>
+          <div class="product-icon"><i class="fa-solid fa-sun"></i></div>
+          <h3>Dagshoroskop</h3>
+          <p>Personlig og nærværende guide til din dag baseret på din energi, dit humør og stjernernes stilling lige nu.</p>
+          <div class="product-price">29 kr.</div>
           
           <ul class="feature-list">
-            <li><i class="fa-solid fa-check"></i> Kræver kun fødselsdato</li>
-            <li><i class="fa-solid fa-check"></i> Analyse af dit Soltegn & Element</li>
-            <li><i class="fa-solid fa-check"></i> Personlige styrker & udfordringer</li>
+            <li><i class="fa-solid fa-check"></i> Tilpasset dit nuværende humør</li>
+            <li><i class="fa-solid fa-check"></i> Dagens fokus & anbefalinger</li>
             <li><i class="fa-solid fa-check"></i> Leveres direkte til e-mail som PDF</li>
           </ul>
         </div>
         
-        <button class="btn btn-outline" style="width: 100%;" onclick="openOrderModal('simple', 'Det Lille Stjernekort', '49 kr.')">Bestil Lille Stjernekort</button>
+        <button class="btn btn-outline" style="width: 100%;" onclick="openOrderModal('daily', 'Dagshoroskop', '29 kr.')">Bestil Dagshoroskop</button>
       </div>
 
-      <!-- Produkt 2: Det Store Sjælehoroskop (Udvalgt) -->
+      <!-- Produkt 2: Dit Ugentlige Horoskop -->
+      <div class="product-card">
+        <div>
+          <div class="product-icon"><i class="fa-solid fa-calendar-week"></i></div>
+          <h3>Ugentligt Horoskop</h3>
+          <p>Dybdegående overblik over de kommende 7 dages energier, med fokus på kærlighed, karriere og personlig vækst.</p>
+          <div class="product-price">79 kr.</div>
+          
+          <ul class="feature-list">
+            <li><i class="fa-solid fa-check"></i> Ugens 7-dages energiprognose</li>
+            <li><i class="fa-solid fa-check"></i> Valgfrit fokusområde & målsætning</li>
+            <li><i class="fa-solid fa-check"></i> Leveres direkte til e-mail som PDF</li>
+          </ul>
+        </div>
+        
+        <button class="btn btn-outline" style="width: 100%;" onclick="openOrderModal('weekly', 'Ugentligt Horoskop', '79 kr.')">Bestil Ugehoroskop</button>
+      </div>
+
+      <!-- Produkt 3: Det Store Sjælehoroskop (Udvalgt) -->
       <div class="product-card featured">
         <div class="popular-tag">Mest Populære</div>
         <div>
@@ -296,7 +316,7 @@
             <li><i class="fa-solid fa-check"></i> Fuld beregning af Ascendant & Måne</li>
             <li><i class="fa-solid fa-check"></i> Dybdegående Kærligheds- & Relationsanalyse</li>
             <li><i class="fa-solid fa-check"></i> Karriere, Livskald & Karmaskæbne</li>
-            <li><i class="fa-solid fa-check"></i> Exklusivt 10-15 siders kompendium (PDF)</li>
+            <li><i class="fa-solid fa-check"></i> Eksklusivt 10-15 siders kompendium (PDF)</li>
           </ul>
         </div>
         
@@ -313,13 +333,14 @@
       
       <div class="modal-header">
         <h3 id="modal-product-title">Bestil Horoskop</h3>
-        <p id="modal-product-subtitle">Udfyld dine fødselsdata nedenfor. Vores astrologiske motor udarbejder dit personlige dokument.</p>
+        <p id="modal-product-subtitle">Udfyld dine oplysninger nedenfor for at lade Astraea forfatte din rapport.</p>
       </div>
 
       <form id="astro-form" class="astro-form" onsubmit="handleAstroSubmit(event)">
         
-        <input type="hidden" id="package_type" name="package_type" value="simple">
+        <input type="hidden" id="package_type" name="package_type" value="daily">
 
+        <!-- Fælles Basis Oplysninger -->
         <div class="form-group">
           <label for="fullname">Dit Fulde Navn *</label>
           <input type="text" id="fullname" name="fullname" placeholder="F.eks. Maria Hansen" required />
@@ -356,8 +377,63 @@
           </div>
         </div>
 
-        <!-- Ekstra felter til det avancerede horoskop -->
-        <div id="advanced-fields" style="display:none; flex-direction:column; gap:20px;">
+        <!-- DYNAMISK SEKTION 1: DAGSHOROSKOP -->
+        <div id="daily-fields" class="dynamic-section" style="display:none;">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="daily_mood">Hvilket humør/energi er du i lige nu? *</label>
+              <select id="daily_mood" name="daily_mood">
+                <option value="Energisk & Klar til handling">Energisk & Klar til handling</option>
+                <option value="Reflekterende & Søgende">Reflekterende & Søgende</option>
+                <option value="Lidt træt / Har brug for ro">Lidt træt / Har brug for ro</option>
+                <option value="Forventningsfuld & Spændt">Forventningsfuld & Spændt</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="daily_breakfast">Hvad har du startet din dag med? *</label>
+              <input type="text" id="daily_breakfast" name="daily_breakfast" placeholder="F.eks. Sort kaffe, havregrød, faste..." />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="daily_color">Hvilken farve repræsenterer din følelse i dag? *</label>
+            <input type="text" id="daily_color" name="daily_color" placeholder="F.eks. Dyb guld, rolig blå, skovgrøn..." />
+          </div>
+        </div>
+
+        <!-- DYNAMISK SEKTION 2: UGEHOROSKOP -->
+        <div id="weekly-fields" class="dynamic-section" style="display:none;">
+          <div class="form-group">
+            <label for="weekly_focus">Hvad er dit største fokus for de næste 7 dage? *</label>
+            <select id="weekly_focus" name="weekly_focus">
+              <option value="Kærlighed & Relationer">Kærlighed, Flirt & Relationer</option>
+              <option value="Karriere, Økonomi & Arbejde">Karriere, Økonomi & Arbejde</option>
+              <option value="Indre ro & Personlig balance">Indre ro & Personlig balance</option>
+              <option value="Nye muligheder & Eventyr">Nye muligheder & Eventyr</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="weekly_element">Hvilket element drages du mest af i denne uge?</label>
+              <select id="weekly_element" name="weekly_element">
+                <option value="Ild (Lidenskab & Handling)">Ild (Lidenskab & Handling)</option>
+                <option value="Vand (Følelser & Intuition)">Vand (Følelser & Intuition)</option>
+                <option value="Luft (Tanker & Kommunikation)">Luft (Tanker & Kommunikation)</option>
+                <option value="Jord (Stabilitet & Styrke)">Jord (Stabilitet & Styrke)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="weekly_desire">Hvad ønsker du at give slip på i ugen?</label>
+              <input type="text" id="weekly_desire" name="weekly_desire" placeholder="F.eks. Stres, tvivl, usikkerhed..." />
+            </div>
+          </div>
+        </div>
+
+        <!-- DYNAMISK SEKTION 3: DET STORE SJÆLEHOROSKOP -->
+        <div id="advanced-fields" class="dynamic-section" style="display:none;">
           <div class="form-row">
             <div class="form-group">
               <label for="birthtime">Præcist Fødselstidspunkt (Hvis kendt)</label>
@@ -371,7 +447,12 @@
           </div>
 
           <div class="form-group">
-            <label for="focus_area">Særligt Ønsket Fokusområde</label>
+            <label for="grand_drive">Hvad er din største livsdrøm eller drivkraft?</label>
+            <input type="text" id="grand_drive" name="grand_drive" placeholder="F.eks. At skabe frihed, finde ægte kærlighed..." />
+          </div>
+
+          <div class="form-group">
+            <label for="focus_area">Særligt Ønsket Fokusområde i rapporten</label>
             <select id="focus_area" name="focus_area">
               <option value="Generelt & Sjælsveje">Generel Sjælsvej & Personlighed</option>
               <option value="Kærlighed & Parforhold">Kærlighed, Parforhold & Relationer</option>
@@ -396,22 +477,33 @@
   </footer>
 
   <script>
-    let currentPackage = 'simple';
+    let currentPackage = 'daily';
 
     function openOrderModal(type, title, price) {
       currentPackage = type;
       document.getElementById('package_type').value = type;
       document.getElementById('modal-product-title').innerText = 'Bestil ' + title + ' (' + price + ')';
       
-      const advFields = document.getElementById('advanced-fields');
+      const dailySec = document.getElementById('daily-fields');
+      const weeklySec = document.getElementById('weekly-fields');
+      const advSec = document.getElementById('advanced-fields');
       const btnText = document.getElementById('btn-text');
 
-      if (type === 'advanced') {
-        advFields.style.display = 'flex';
+      // Skjul alle først
+      dailySec.style.display = 'none';
+      weeklySec.style.display = 'none';
+      advSec.style.display = 'none';
+
+      // Vis den relevante sektion
+      if (type === 'daily') {
+        dailySec.style.display = 'flex';
+        btnText.innerText = 'Bestil Dagshoroskop (' + price + ')';
+      } else if (type === 'weekly') {
+        weeklySec.style.display = 'flex';
+        btnText.innerText = 'Bestil Ugentligt Horoskop (' + price + ')';
+      } else if (type === 'advanced') {
+        advSec.style.display = 'flex';
         btnText.innerText = 'Bestil Store Sjælehoroskop (' + price + ')';
-      } else {
-        advFields.style.display = 'none';
-        btnText.innerText = 'Bestil Lille Stjernekort (' + price + ')';
       }
 
       document.getElementById('order-modal').style.display = 'flex';
@@ -434,8 +526,21 @@
         email: document.getElementById('email').value,
         birthdate: document.getElementById('birthdate').value,
         zodiac: document.getElementById('zodiac').value,
+        
+        // Dagshoroskop felter
+        daily_mood: document.getElementById('daily_mood').value || 'Ej angivet',
+        daily_breakfast: document.getElementById('daily_breakfast').value || 'Ej angivet',
+        daily_color: document.getElementById('daily_color').value || 'Ej angivet',
+
+        // Ugehoroskop felter
+        weekly_focus: document.getElementById('weekly_focus').value || 'Ej angivet',
+        weekly_element: document.getElementById('weekly_element').value || 'Ej angivet',
+        weekly_desire: document.getElementById('weekly_desire').value || 'Ej angivet',
+
+        // Store Sjælehoroskop felter
         birthtime: document.getElementById('birthtime').value || 'Ej angivet',
         birthcity: document.getElementById('birthcity').value || 'Ej angivet',
+        grand_drive: document.getElementById('grand_drive').value || 'Ej angivet',
         focus_area: document.getElementById('focus_area').value || 'Generelt'
       };
 
