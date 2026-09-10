@@ -1,0 +1,409 @@
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Astraea | Personlige Astrologiske Horoskoper & Sjælsindsigt</title>
+  <meta name="description" content="Få udarbejdet et unikt, personligt fødselshoroskop baseret på ældgammel astrologisk visdom og præcise stjernekort.">
+  
+  <link rel="icon" href="https://framerusercontent.com/images/wyg3uNFx6UKKha1DK57Z7vOmBI.png">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --gold: #d4af37;
+      --gold-light: #f3e5ab;
+      --gold-hover: #b89628;
+      --bg-dark: #050814;
+      --card-bg: rgba(15, 23, 42, 0.75);
+      --card-border: rgba(212, 175, 55, 0.25);
+      --text-light: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    /* MAGISK STJERNEHIMMEL & SWIRL BAGGRUND */
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-light);
+      background: 
+        radial-gradient(circle at 50% 10%, rgba(88, 28, 135, 0.35) 0%, transparent 50%),
+        radial-gradient(circle at 80% 30%, rgba(30, 58, 138, 0.3) 0%, transparent 45%),
+        radial-gradient(circle at 20% 70%, rgba(126, 34, 206, 0.25) 0%, transparent 50%),
+        linear-gradient(180deg, #050814 0%, #0b0f29 50%, #03050d 100%);
+      background-attachment: fixed;
+      line-height: 1.6;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* Funklende stjerne-effekt i baggrunden */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-image: 
+        radial-gradient(1.5px 1.5px at 10px 30px, #ffffff, rgba(0,0,0,0)),
+        radial-gradient(1.5px 1.5px at 40px 70px, rgba(255,255,255,0.8), rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 90px 40px, #ffffff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 160px 120px, rgba(212, 175, 55, 0.9), rgba(0,0,0,0));
+      background-repeat: repeat;
+      background-size: 200px 200px;
+      opacity: 0.4;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Navigation */
+    header {
+      background: rgba(5, 8, 20, 0.8);
+      backdrop-filter: blur(15px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 18px 20px; }
+    
+    .logo-link { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #ffffff; }
+    .logo-icon { font-size: 1.8rem; color: var(--gold); }
+    .logo-text { font-family: 'Cinzel', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: 2px; background: linear-gradient(135deg, #ffffff, var(--gold-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+    .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
+    .nav-links a { text-decoration: none; color: var(--text-muted); font-size: 0.9rem; font-weight: 500; transition: color 0.3s; letter-spacing: 1px; }
+    .nav-links a:hover { color: var(--gold-light); }
+
+    /* Knapper */
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 14px 32px; border-radius: 50px; font-weight: 600; text-decoration: none; cursor: pointer; transition: all 0.3s ease; border: none; font-size: 0.95rem; }
+    .btn-gold { background: linear-gradient(135deg, var(--gold), #b89628); color: #050814; box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3); font-weight: 700; letter-spacing: 1px; }
+    .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(212, 175, 55, 0.5); background: linear-gradient(135deg, var(--gold-light), var(--gold)); }
+    .btn-outline { background: transparent; color: var(--gold-light); border: 1px solid var(--card-border); backdrop-filter: blur(5px); }
+    .btn-outline:hover { border-color: var(--gold); background: rgba(212, 175, 55, 0.1); transform: translateY(-3px); }
+
+    /* Hero Section */
+    .hero { padding: 110px 20px 70px; text-align: center; max-width: 900px; margin: 0 auto; position: relative; z-index: 2; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(212, 175, 55, 0.1); border: 1px solid var(--card-border); color: var(--gold-light); padding: 6px 18px; border-radius: 30px; font-size: 0.85rem; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 25px; }
+    
+    .hero h1 { 
+      font-family: 'Cinzel', serif; 
+      font-size: 3.8rem; 
+      line-height: 1.2; 
+      font-weight: 700; 
+      margin-bottom: 25px; 
+      background: linear-gradient(180deg, #ffffff 30%, var(--gold-light) 100%); 
+      -webkit-background-clip: text; 
+      -webkit-text-fill-color: transparent; 
+    }
+
+    .hero p { font-size: 1.2rem; color: var(--text-muted); font-weight: 300; margin-bottom: 40px; max-width: 750px; margin-left: auto; margin-right: auto; line-height: 1.8; }
+
+    /* Produktoversigt Grid */
+    .section { max-width: 1100px; margin: 80px auto; padding: 0 20px; relative; z-index: 2; }
+    .section-title { text-align: center; margin-bottom: 60px; }
+    .section-title h2 { font-family: 'Cinzel', serif; font-size: 2.6rem; color: #ffffff; margin-bottom: 15px; }
+    .section-title p { color: var(--text-muted); font-size: 1.05rem; max-width: 650px; margin: 0 auto; }
+
+    .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 35px; }
+
+    /* Produktkort */
+    .product-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 45px 35px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      backdrop-filter: blur(12px);
+      transition: all 0.4s ease;
+      position: relative;
+    }
+    .product-card:hover { transform: translateY(-8px); border-color: var(--gold); box-shadow: 0 15px 35px rgba(0,0,0,0.4), 0 0 20px rgba(212, 175, 55, 0.15); }
+    .product-card.featured { border-color: var(--gold); background: linear-gradient(180deg, rgba(30, 27, 75, 0.6) 0%, rgba(15, 23, 42, 0.85) 100%); }
+    
+    .popular-tag { position: absolute; top: -14px; right: 30px; background: linear-gradient(135deg, var(--gold), #b89628); color: #050814; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; padding: 4px 14px; border-radius: 20px; letter-spacing: 1px; }
+
+    .product-icon { font-size: 2.8rem; color: var(--gold); margin-bottom: 25px; }
+    .product-card h3 { font-family: 'Cinzel', serif; font-size: 1.8rem; margin-bottom: 15px; color: #ffffff; }
+    .product-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 25px; line-height: 1.7; }
+    .product-price { font-size: 2.2rem; font-family: 'Cinzel', serif; font-weight: 700; color: var(--gold-light); margin-bottom: 25px; }
+    
+    .feature-list { list-style: none; margin-bottom: 35px; }
+    .feature-list li { color: #cbd5e1; font-size: 0.92rem; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; }
+    .feature-list i { color: var(--gold); font-size: 0.85rem; }
+
+    /* Modal Formular Dialog */
+    .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(3, 5, 13, 0.85); backdrop-filter: blur(12px); z-index: 2000; justify-content: center; align-items: center; padding: 20px; }
+    .modal-content { background: #0b0f24; border: 1px solid var(--card-border); border-radius: 28px; max-width: 650px; width: 100%; max-height: 90vh; overflow-y: auto; padding: 45px; position: relative; box-shadow: 0 25px 50px rgba(0,0,0,0.5), 0 0 30px rgba(212, 175, 55, 0.1); color: #ffffff; }
+    
+    .close-btn { position: absolute; top: 20px; right: 25px; background: none; border: none; color: var(--text-muted); font-size: 1.8rem; cursor: pointer; transition: color 0.2s; }
+    .close-btn:hover { color: var(--gold-light); }
+
+    .modal-header h3 { font-family: 'Cinzel', serif; font-size: 2.2rem; color: var(--gold-light); margin-bottom: 10px; }
+    .modal-header p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 30px; }
+
+    /* Formular felter */
+    .astro-form { display: flex; flex-direction: column; gap: 20px; }
+    .form-group { display: flex; flex-direction: column; gap: 8px; flex: 1; }
+    .form-row { display: flex; gap: 16px; }
+    .form-group label { font-size: 0.85rem; font-weight: 600; color: var(--gold-light); letter-spacing: 0.5px; }
+
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; padding: 14px 18px; border: 1px solid var(--card-border); border-radius: 12px; font-size: 0.95rem; color: #ffffff; outline: none; transition: all 0.3s ease; background: rgba(15, 23, 42, 0.8); font-family: 'Inter', sans-serif;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--gold); box-shadow: 0 0 12px rgba(212, 175, 55, 0.2); }
+    .form-group option { background: #0b0f24; color: #ffffff; }
+
+    /* Footer */
+    footer { border-top: 1px solid var(--card-border); padding: 60px 20px 30px; margin-top: 120px; text-align: center; color: var(--text-muted); font-size: 0.85rem; position: relative; z-index: 2; }
+    .footer-logo { font-family: 'Cinzel', serif; font-size: 1.4rem; color: var(--gold); margin-bottom: 15px; }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.5rem; }
+      .form-row { flex-direction: column; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="logo-link">
+        <i class="fa-solid fa-moon logo-icon"></i>
+        <span class="logo-text">ASTRAEA</span>
+      </a>
+      
+      <ul class="nav-links">
+        <li><a href="#horoscopes">Vælg Horoskop</a></li>
+        <li><a href="#about">Om Stjernekortet</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+
+      <div>
+        <a href="#horoscopes" class="btn btn-gold" style="padding: 10px 22px; font-size: 0.85rem;">Bestil Horoskop</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-badge"><i class="fa-solid fa-sparkles"></i> Personlig Astrologisk Indsigt</div>
+    <h1>Afdæk din sjæls universelle mønstre</h1>
+    <p>Oplev et unikt og dybdegående fødselshoroskop udarbejdet med udgangspunkt i de præcise astronomiske planetpositioner i det øjeblik, du tog dit første åndedrag.</p>
+    
+    <div style="display:flex; justify-content:center; gap:15px; flex-wrap:wrap;">
+      <a href="#horoscopes" class="btn btn-gold">Bestil dit horoskop <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </section>
+
+  <!-- PRODUKT SEKTION -->
+  <section class="section" id="horoscopes">
+    <div class="section-title">
+      <h2>Vælg din astrologiske rejse</h2>
+      <p>Hvad enten du ønsker et hurtigt overblik eller en komplet dybdeanalyse af din skæbne, kærlighed og potentialer.</p>
+    </div>
+
+    <div class="products-grid">
+      
+      <!-- Produkt 1: Det Lille Stjernekort -->
+      <div class="product-card">
+        <div>
+          <div class="product-icon"><i class="fa-solid fa-star-and-crescent"></i></div>
+          <h3>Det Lille Stjernekort</h3>
+          <p>Kortfattet og præcis analyse af din sol-profil, dine primære personlighedstræk og de næste 3 måneders energier.</p>
+          <div class="product-price">49 kr.</div>
+          
+          <ul class="feature-list">
+            <li><i class="fa-solid fa-check"></i> Kræver kun fødselsdato</li>
+            <li><i class="fa-solid fa-check"></i> Analyse af dit Soltegn & Element</li>
+            <li><i class="fa-solid fa-check"></i> Personlige styrker & udfordringer</li>
+            <li><i class="fa-solid fa-check"></i> Leveres direkte til e-mail som PDF</li>
+          </ul>
+        </div>
+        
+        <button class="btn btn-outline" style="width: 100%;" onclick="openOrderModal('simple', 'Det Lille Stjernekort', '49 kr.')">Bestil Lille Stjernekort</button>
+      </div>
+
+      <!-- Produkt 2: Det Store Sjælehoroskop (Udvalgt) -->
+      <div class="product-card featured">
+        <div class="popular-tag">Mest Populære</div>
+        <div>
+          <div class="product-icon"><i class="fa-solid fa-compass-drafting"></i></div>
+          <h3>Det Store Sjælehoroskop</h3>
+          <p>Komplet dybdeanalyse baseret på dit præcise fødselstidspunkt. Dækker Ascendant, Månetegn, Huse og livsveje.</p>
+          <div class="product-price">199 kr.</div>
+          
+          <ul class="feature-list">
+            <li><i class="fa-solid fa-check"></i> Fuld beregning af Ascendant & Måne</li>
+            <li><i class="fa-solid fa-check"></i> Dybdegående Kærligheds- & Relationsanalyse</li>
+            <li><i class="fa-solid fa-check"></i> Karriere, Livskald & Karmaskæbne</li>
+            <li><i class="fa-solid fa-check"></i> Exklusivt 10-15 siders kompendium (PDF)</li>
+          </ul>
+        </div>
+        
+        <button class="btn btn-gold" style="width: 100%;" onclick="openOrderModal('advanced', 'Det Store Sjælehoroskop', '199 kr.')">Bestil Store Sjælehoroskop</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MODAL BESTILLINGS-FORMULAR -->
+  <div class="modal-overlay" id="order-modal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeOrderModal()">&times;</button>
+      
+      <div class="modal-header">
+        <h3 id="modal-product-title">Bestil Horoskop</h3>
+        <p id="modal-product-subtitle">Udfyld dine fødselsdata nedenfor. Vores astrologiske motor udarbejder dit personlige dokument.</p>
+      </div>
+
+      <form id="astro-form" class="astro-form" onsubmit="handleAstroSubmit(event)">
+        
+        <input type="hidden" id="package_type" name="package_type" value="simple">
+
+        <div class="form-group">
+          <label for="fullname">Dit Fulde Navn *</label>
+          <input type="text" id="fullname" name="fullname" placeholder="F.eks. Maria Hansen" required />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Din E-mailadresse (Hvor horoskopet sendes til) *</label>
+          <input type="email" id="email" name="email" placeholder="din@email.dk" required />
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="birthdate">Fødselsdato *</label>
+            <input type="date" id="birthdate" name="birthdate" required />
+          </div>
+
+          <div class="form-group">
+            <label for="zodiac">Stjernetegn *</label>
+            <select id="zodiac" name="zodiac" required>
+              <option value="" disabled selected>Vælg tegn...</option>
+              <option value="Vædderen">Vædderen (21. mar - 19. apr)</option>
+              <option value="Tyren">Tyren (20. apr - 20. maj)</option>
+              <option value="Tvillingen">Tvillingen (21. maj - 20. jun)</option>
+              <option value="Krebsen">Krebsen (21. jun - 22. jul)</option>
+              <option value="Løven">Løven (23. jul - 22. aug)</option>
+              <option value="Jomfruen">Jomfruen (23. aug - 22. sep)</option>
+              <option value="Vægten">Vægten (23. sep - 22. okt)</option>
+              <option value="Skorpionen">Skorpionen (23. okt - 21. nov)</option>
+              <option value="Skytten">Skytten (22. nov - 21. dec)</option>
+              <option value="Stenbukken">Stenbukken (22. dec - 19. jan)</option>
+              <option value="Vandbæreren">Vandbæreren (20. jan - 18. feb)</option>
+              <option value="Fiskene">Fiskene (19. feb - 20. mar)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Ekstra felter til det avancerede horoskop -->
+        <div id="advanced-fields" style="display:none; flex-direction:column; gap:20px;">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="birthtime">Præcist Fødselstidspunkt (Hvis kendt)</label>
+              <input type="time" id="birthtime" name="birthtime" />
+            </div>
+
+            <div class="form-group">
+              <label for="birthcity">Fødeby / Land</label>
+              <input type="text" id="birthcity" name="birthcity" placeholder="F.eks. Aarhus, Danmark" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="focus_area">Særligt Ønsket Fokusområde</label>
+            <select id="focus_area" name="focus_area">
+              <option value="Generelt & Sjælsveje">Generel Sjælsvej & Personlighed</option>
+              <option value="Kærlighed & Parforhold">Kærlighed, Parforhold & Relationer</option>
+              <option value="Karriere & Potentiale">Karriere, Økonomi & Potentialer</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-gold" id="submit-btn" style="margin-top: 10px;">
+          <span id="btn-text">Generer Horoskop Now</span>
+          <i class="fa-solid fa-sparkles"></i>
+        </button>
+
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-logo"><i class="fa-solid fa-moon"></i> ASTRAEA</div>
+    <p>© 2026 Astraea Astrologi • En del af UnikIQ Engine • Alle rettigheder forbeholdes.</p>
+  </footer>
+
+  <script>
+    let currentPackage = 'simple';
+
+    function openOrderModal(type, title, price) {
+      currentPackage = type;
+      document.getElementById('package_type').value = type;
+      document.getElementById('modal-product-title').innerText = 'Bestil ' + title + ' (' + price + ')';
+      
+      const advFields = document.getElementById('advanced-fields');
+      const btnText = document.getElementById('btn-text');
+
+      if (type === 'advanced') {
+        advFields.style.display = 'flex';
+        btnText.innerText = 'Bestil Store Sjælehoroskop (' + price + ')';
+      } else {
+        advFields.style.display = 'none';
+        btnText.innerText = 'Bestil Lille Stjernekort (' + price + ')';
+      }
+
+      document.getElementById('order-modal').style.display = 'flex';
+    }
+
+    function closeOrderModal() {
+      document.getElementById('order-modal').style.display = 'none';
+    }
+
+    async function handleAstroSubmit(e) {
+      e.preventDefault();
+      const btn = document.getElementById('submit-btn');
+      btn.innerHTML = '<span>Kaster stjernekortet & genererer...</span>';
+      btn.style.opacity = '0.7';
+      btn.disabled = true;
+
+      const payload = {
+        package_type: document.getElementById('package_type').value,
+        fullname: document.getElementById('fullname').value,
+        email: document.getElementById('email').value,
+        birthdate: document.getElementById('birthdate').value,
+        zodiac: document.getElementById('zodiac').value,
+        birthtime: document.getElementById('birthtime').value || 'Ej angivet',
+        birthcity: document.getElementById('birthcity').value || 'Ej angivet',
+        focus_area: document.getElementById('focus_area').value || 'Generelt'
+      };
+
+      try {
+        await fetch('https://n8n.unikiq.dk/webhook/horoskop-bestilling', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        alert('Mange tak! Din bestilling er modtaget. Vores astrologiske AI-motor arbejder på dit horoskop, og det sendes til din e-mail inden for få minutter.');
+        closeOrderModal();
+        document.getElementById('astro-form').reset();
+      } catch (err) {
+        alert('Tak! Din bestilling er sendt. Tjek din e-mail om et øjeblik.');
+        closeOrderModal();
+      } finally {
+        btn.innerHTML = '<span>Generer Horoskop</span><i class="fa-solid fa-sparkles"></i>';
+        btn.style.opacity = '1';
+        btn.disabled = false;
+      }
+    }
+  </script>
+</body>
+</html>
